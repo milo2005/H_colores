@@ -5,11 +5,11 @@
     <string name="action_settings">Settings</string>
 
     <string-array name="colores">
-        <item>Azul</item>
-        <item>Rojo</item>
-        <item>Amarillo</item>
-        <item>Verde</item>
-        <item>Naranja</item>
-        <item>Violeta</item>
+        <item>Azul,#0000FF,http://f.tqn.com/y/arte/1/S/x/3/-/-/Wallpaper-Azul.jpg</item>
+        <item>Rojo,#FF0000,http://www.proyectacolor.cl/wp-content/uploads/2008/12/roj4.jpg</item>
+        <item>Amarillo,#FFFF00,https://www.muralesyvinilos.com/murales/bosque_amarillo_profundidad_muralesyvinilos_5103543__XL.jpg</item>
+        <item>Verde,#00FF00,http://www.mamanatural.com.mx/wp-content/uploads/2012/04/verde2.jpg</item>
+        <item>Naranja,#FF6600,http://t2.uccdn.com/images/2/5/6/img_cuales_son_las_propiedades_de_la_naranja_24652_orig.jpg</item>
+        <item>Violeta,#FF00FF,http://imagenesbonitas.biz/wp-content/uploads/2013/04/fotos-bonitas-8.jpg</item>
     </string-array>
 </resources>
