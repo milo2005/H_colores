@@ -3,4 +3,14 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string-array name="colores">
+        <item>Azul</item>
+        <item>Rojo</item>
+        <item>Amarillo</item>
+        <item>Verde</item>
+        <item>Naranja</item>
+        <item>Violeta</item>
+
+
+    </string-array>
 </resources>
