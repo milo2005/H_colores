@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +61,18 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
-            case R.id.action_add; break;
+            case R.id.action_add:
+                Toast.makeText(this,"Entraste en Agregar", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_more:
+                Toast.makeText(this,"Entraste en mas", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_info:
+                Toast.makeText(this,"Entraste en info", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_about:
+                Toast.makeText(this,"Entraste en Acerca de", Toast.LENGTH_SHORT).show();
+                break;
         }
 
         return super.onOptionsItemSelected(item);
