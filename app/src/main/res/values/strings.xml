@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Colecciones II</string>
+    <string name="app_name">Colores</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -22,7 +22,7 @@
         <item>Naranja,#FF6600,http://t2.uccdn.com/images/2/5/6/img_cuales_son_las_propiedades_de_la_naranja_24652_orig.jpg</item>
         <item>Violeta,#FF00FF,http://imagenesbonitas.biz/wp-content/uploads/2013/04/fotos-bonitas-8.jpg</item>
     </string-array>
-    <string name="title_activity_add_color">AddColorActivity</string>
+    <string name="title_activity_add_color">Agregar Color</string>
     <string name="add_url_img">Url Imagen</string>
     <string name="add_hex">Codigo Hexadecial</string>
     <string name="add_nombre">Nombre</string>

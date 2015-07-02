@@ -1,6 +1,7 @@
 package unicauca.movil.holamundo.coleccionesii;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -18,6 +19,7 @@ import java.util.List;
 
 import unicauca.movil.holamundo.coleccionesii.adapters.ColorAdapter;
 import unicauca.movil.holamundo.coleccionesii.models.ColorItem;
+import unicauca.movil.holamundo.coleccionesii.util.AppUtil;
 
 
 public class MainActivity extends ActionBarActivity implements DialogInterface.OnClickListener{
@@ -25,8 +27,6 @@ public class MainActivity extends ActionBarActivity implements DialogInterface.O
     ListView list;
     String colores[];
     ColorAdapter adapter;
-
-    List<ColorItem> data;
 
     int pos;
 
@@ -38,8 +38,8 @@ public class MainActivity extends ActionBarActivity implements DialogInterface.O
         list = (ListView) findViewById(R.id.list);
         colores = getResources().getStringArray(R.array.colores);
 
-        data = new ArrayList<>();
-        adapter = new ColorAdapter(this, data);
+        AppUtil.data = new ArrayList<>();
+        adapter = new ColorAdapter(this, AppUtil.data);
 
         list.setAdapter(adapter);
 
@@ -55,11 +55,17 @@ public class MainActivity extends ActionBarActivity implements DialogInterface.O
             item.setNombre(color[0]);
             item.setNombreHex(color[1]);
             item.setUrl(color[2]);
-            data.add(item);
+            AppUtil.data.add(item);
         }
         adapter.notifyDataSetChanged();
 
 
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        adapter.notifyDataSetChanged();
     }
 
 
@@ -75,7 +81,9 @@ public class MainActivity extends ActionBarActivity implements DialogInterface.O
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
             case R.id.action_add:
-                Toast.makeText(this,"Entraste en Agregar", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, AddColorActivity.class);
+                startActivity(intent);
+
                 break;
             case R.id.action_more:
                 Toast.makeText(this,"Entraste en mas", Toast.LENGTH_SHORT).show();
@@ -111,7 +119,9 @@ public class MainActivity extends ActionBarActivity implements DialogInterface.O
 
         switch(item.getItemId()){
             case R.id.action_edit:
-
+                Intent intent = new Intent(this, AddColorActivity.class);
+                intent.putExtra(AddColorActivity.KEY_POS,pos);
+                startActivity(intent);
                 break;
             case R.id.action_delete:
                 showDeleteAlert();
@@ -138,7 +148,7 @@ public class MainActivity extends ActionBarActivity implements DialogInterface.O
     @Override
     public void onClick(DialogInterface dialog, int which) {
         if(which==DialogInterface.BUTTON_POSITIVE){
-            data.remove(pos);
+            AppUtil.data.remove(pos);
             adapter.notifyDataSetChanged();
 
         }
