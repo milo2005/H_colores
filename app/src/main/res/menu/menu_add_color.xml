@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="unicauca.movil.holamundo.coleccionesii.AddColorActivity">
+
+    <item android:id="@+id/action_ok" android:title="@string/action_ok"
+        android:icon="@android:drawable/ic_menu_send"
+
+        app:showAsAction="always" />
+</menu>

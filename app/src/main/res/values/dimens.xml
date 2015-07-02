@@ -7,4 +7,5 @@
     <dimen name="template_padding">10dp</dimen>
     <dimen name="template_margin">15dp</dimen>
     <dimen name="template_small">20sp</dimen>
+    <dimen name="add_margin_bottom">15dp</dimen>
 </resources>
