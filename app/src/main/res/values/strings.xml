@@ -7,6 +7,12 @@
     <string name="action_more">Mas</string>
     <string name="action_info">Información</string>
     <string name="action_about">Acerca de</string>
+    <string name="action_edit">Editar</string>
+    <string name="action_delete">Eliminar</string>
+    <string name="delete_title">Eliminar Color</string>
+    <string name="delete_msg">Desea eliminar el color?</string>
+    <string name="delete_positive">Aceptar</string>
+    <string name="delete_negative">Cancelar</string>
 
     <string-array name="colores">
         <item>Azul,#0000FF,http://f.tqn.com/y/arte/1/S/x/3/-/-/Wallpaper-Azul.jpg</item>

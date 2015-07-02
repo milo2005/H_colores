@@ -1,9 +1,14 @@
 package unicauca.movil.holamundo.coleccionesii;
 
+import android.content.DialogInterface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -15,13 +20,15 @@ import unicauca.movil.holamundo.coleccionesii.adapters.ColorAdapter;
 import unicauca.movil.holamundo.coleccionesii.models.ColorItem;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements DialogInterface.OnClickListener{
 
     ListView list;
     String colores[];
     ColorAdapter adapter;
 
     List<ColorItem> data;
+
+    int pos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +43,8 @@ public class MainActivity extends ActionBarActivity {
 
         list.setAdapter(adapter);
 
+        registerForContextMenu(list);
+
         llenarData();
     }
 
@@ -49,8 +58,12 @@ public class MainActivity extends ActionBarActivity {
             data.add(item);
         }
         adapter.notifyDataSetChanged();
+
+
     }
 
+
+    //region Menu de Opciones
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -76,5 +89,58 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    //endregion
+
+
+    //region Menu Contextual
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        getMenuInflater().inflate(R.menu.menu_ctx_color, menu);
+        super.onCreateContextMenu(menu, v, menuInfo);
+    }
+
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+
+        AdapterView.AdapterContextMenuInfo info =
+                (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+
+        pos = info.position;
+
+        switch(item.getItemId()){
+            case R.id.action_edit:
+
+                break;
+            case R.id.action_delete:
+                showDeleteAlert();
+                break;
+        }
+
+        return super.onContextItemSelected(item);
+    }
+
+    //endregion
+
+    private void showDeleteAlert() {
+        AlertDialog alert = new AlertDialog.Builder(this)
+                .setTitle(getString(R.string.delete_title))
+                .setMessage(getString(R.string.delete_msg))
+                //.setView()
+                .setPositiveButton(getString(R.string.delete_positive),this)
+                .setNegativeButton(getString(R.string.delete_negative),this)
+                .create();
+
+        alert.show();
+    }
+
+    @Override
+    public void onClick(DialogInterface dialog, int which) {
+        if(which==DialogInterface.BUTTON_POSITIVE){
+            data.remove(pos);
+            adapter.notifyDataSetChanged();
+
+        }
     }
 }
